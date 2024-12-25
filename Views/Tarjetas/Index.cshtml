@@ -1,0 +1,43 @@
+﻿@*recupero el viewBag*@
+
+@*para referenciar un metodo, una variable o un elemento de codigo utilizado '@'*@
+
+<h1>@ViewBag.Titulo</h1>
+<h1>@ViewBag.Subtitulo</h1>
+<br />
+
+
+<div class="row">
+    <div class="col-md-2" style="text-align:right;">
+        <a href="~/Tarjetas/Nueva_Tarjeta" class="btn btn-primary">Nueva tarjeta</a>
+    </div>
+</div>
+<br />
+
+<div class="col-md-12  row text-center">
+    @foreach (var tarjetas in Model)
+    {
+        <div class="col-md-3 col-sm-12">
+            @*//Tarjeta de Bootstrap*@
+            <div class="card" style="width: 18rem;">
+
+                <div class="card-body">
+                    <h2 class="card-title">Tarjeta no. @tarjetas.TarjetaID</h2>
+                    <h5 class="card-title">@tarjetas.ClienteID</h5>
+                    <ul>
+                        <li class="card-text">@tarjetas.NumeroTarjeta</li>
+                        <li class="card-text">@tarjetas.TipoTarjeta</li>
+                        <li class="card-text">@tarjetas.LimiteCredito</li>
+                        <li class="card-text">@tarjetas.SaldoDisponible</li>
+                        <li class="card-text">@tarjetas.FechaEmision</li>
+                        <li class="card-text">@tarjetas.FechaVencimiento</li>
+                        <li class="card-text">@tarjetas.Estado</li>
+                    </ul>
+                    <a class="btn btn-warning" href="~/Tarjetas/Editar_Tarjeta/@tarjetas.TarjetaID">Editar</a>
+                    <a class="btn btn-danger" href="~/Tarjetas/Confirmar_Eliminar/@tarjetas.TarjetaID">Eliminar</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

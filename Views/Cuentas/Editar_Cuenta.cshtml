@@ -1,0 +1,61 @@
+﻿
+@model DTO.Cuentas_DTO
+@*Indicamos a Razor que utilizaremos un modelo especificos*@
+
+
+<h2>@ViewBag.Titulo</h2>
+@*comenczamos a crear nuestro formulario
+    HTML HELPER BeginForm es el HTML Helper*@
+
+@using (Html.BeginForm("Editar_Cuenta", "Cuentas", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-12">
+            @Html.HiddenFor(model => model.CuentaID)
+
+
+            <div>
+                @*generamos la etiqueta label*@
+                @Html.LabelFor(model => model.ClienteID)
+                @*generamos la etiqueta input*@
+                @Html.TextBoxFor(model => model.ClienteID, new { @class = "form-control", @type = "text" })
+                @*generamos un espacio para le msg de validacion*@
+                @Html.ValidationMessageFor(model => model.ClienteID, null)
+            </div>
+
+            <div>
+                @*generamos la etiqueta label*@
+                @Html.LabelFor(model => model.TipoCuenta)
+                @*generamos la etiqueta input*@
+                @Html.TextBoxFor(model => model.TipoCuenta, new { @class = "form-control", @type = "text" })
+                @*generamos un espacio para le msg de validacion*@
+                @Html.ValidationMessageFor(model => model.TipoCuenta, null)
+            </div>
+
+            <div>
+                @*generamos la etiqueta label*@
+                @Html.LabelFor(model => model.Saldo)
+                @*generamos la etiqueta input*@
+                @Html.TextBoxFor(model => model.Saldo, new { @class = "form-control", @type = "text" })
+                @*generamos un espacio para le msg de validacion*@
+                @Html.ValidationMessageFor(model => model.Saldo, null)
+            </div>
+
+            <div>
+                @*generamos la etiqueta label*@
+                @Html.LabelFor(model => model.FechaApertura)
+                @*generamos la etiqueta input*@
+                @Html.TextBoxFor(model => model.FechaApertura, new { @class = "form-control", @type = "date" })
+                @*generamos un espacio para le msg de validacion*@
+                @Html.ValidationMessageFor(model => model.FechaApertura, null)
+            </div>
+
+            
+
+            <div style="text-align: right;">
+                <input value="Guardar" class="btn btn-success" type="submit" />
+            </div>
+        </div>
+    </div>
+}
+

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="33e29f2366264cfe96cbf2666049ed05" Name="Diagram1">
+        <EntityTypeShape EntityType="BancoDBModel.Clientes" Width="1.5" PointX="4.625" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancoDBModel.Cuentas" Width="1.5" PointX="0.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancoDBModel.Prestamos" Width="1.5" PointX="1.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancoDBModel.Sesiones" Width="1.5" PointX="7.5" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancoDBModel.Tarjetas" Width="1.5" PointX="1.625" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancoDBModel.Transacciones" Width="1.5" PointX="3.375" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancoDBModel.VistaResumenCliente" Width="1.5" PointX="8.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancoDBModel.VistaTransaccionesCuenta" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BancoDBModel.VW_Cuentas" Width="1.5" PointX="9.625" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="BancoDBModel.FK__Cuentas__Cliente__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoDBModel.FK__Prestamos__Clien__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoDBModel.FK__Prestamos__Clien__74794A92" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoDBModel.FK__Prestamos__Clien__756D6ECB" ManuallyRouted="true" >
+          <ConnectorPoint PointX="4.625" PointY="6.7784277343749988" />
+          <ConnectorPoint PointX="3" PointY="6.7784277343749988" />
+        </AssociationConnector>
+        <AssociationConnector Association="BancoDBModel.FK__Prestamos__Clien__76619304" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoDBModel.FK__Prestamos__Clien__7755B73D" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoDBModel.FK__Prestamos__Clien__7849DB76" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoDBModel.FK__Prestamos__Clien__793DFFAF" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoDBModel.FK__Prestamos__Clien__7A3223E8" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoDBModel.FK__Prestamos__Clien__7B264821" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoDBModel.FK__Prestamos__Clien__7C1A6C5A" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoDBModel.FK__Sesion__ClienteI__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoDBModel.FK__Tarjetas__Client__14270015" ManuallyRouted="false" />
+        <AssociationConnector Association="BancoDBModel.FK__Transacci__Cuent__5165187F" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

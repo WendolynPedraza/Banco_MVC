@@ -1,0 +1,53 @@
+﻿@*recupero el viewBag*@
+
+@*para referenciar un metodo, una variable o un elemento de codigo utilizado '@'*@
+
+<h1>@ViewBag.Titulo</h1>
+<h1>@ViewBag.Subtitulo</h1>
+<br />
+<div class="row">
+    <div class="col-md-2" style="text-align:right;">
+        <a href="~/Clientes/Nuevo_Cliente" class="btn btn-primary">Nuevo cliente</a>
+    </div>
+</div>
+<br />
+
+<table class="table table-bordered table-striped table-striped-columns table-responsive">
+<thead>
+    <tr>
+        <th scope="col"> ClienteID     </th>
+        <th scope="col"> Nombre     </th>
+        <th scope="col"> Apellidos     </th>
+        <th scope="col"> FechaNacimiento   </th>
+        <th scope="col"> Dirección         </th>
+        <th scope="col"> Telefono        </th>
+        <th scope="col"> Email     </th>
+    </tr>
+        </thead>
+        <tbody>
+            @foreach (var cliente in Model)
+            {
+                <tr>
+                    <td>@cliente.ClienteID </td>
+                    <td>@cliente.Nombre </td>
+                    <td>@cliente.Apellido </td>
+                    <td>@cliente.FechaNacimiento </td>
+                    <td>@cliente.Direccion </td>
+                    <td>@cliente.Telefono </td>
+                    <td>@cliente.Email </td>
+
+                    <td>
+                        <a class="btn btn-warning" href="~/Clientes/Editar_Cliente/@cliente.ClienteID">Editar</a>
+                        
+                    </td>
+                    <td>
+                        <a class="btn btn-danger" href="~/Clientes/Confirmar_Eliminar/@cliente.ClienteID">Eliminar</a>
+                    </td>
+                   
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+
