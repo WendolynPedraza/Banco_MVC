@@ -31,7 +31,7 @@ namespace Banco_MVC.Controllers
         //GET: Nueva_Transaccion
         public ActionResult Nueva_Transaccion()
         {
-            ViewBag.Titulo = "Nuevo prestamo";
+            ViewBag.Titulo = "Nueva transacción";
             cargarDDL();
             return View();
         }
@@ -95,7 +95,7 @@ namespace Banco_MVC.Controllers
                 {
                     return RedirectToAction("Index");
                 }
-                ViewBag.Titulo = $"Editar Prestamo #{trans.TransaccionID}";
+                ViewBag.Titulo = $"Editar transacción #{trans.TransaccionID}";
                 cargarDDL();
                 return View(trans);
             }

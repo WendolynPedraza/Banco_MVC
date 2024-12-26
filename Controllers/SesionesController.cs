@@ -56,7 +56,7 @@ namespace Banco_MVC.Controllers
         //GET: Nueva_Transaccion
         public ActionResult Nueva_Sesion()
         {
-            ViewBag.Titulo = "Nuevo prestamo";
+            ViewBag.Titulo = "Nueva sesión";
             DDL();
             return View();
         }
@@ -133,7 +133,7 @@ namespace Banco_MVC.Controllers
                 {
                     return RedirectToAction("Index");
                 }
-                ViewBag.Titulo = $"Editar Prestamo #{sesion.SesionID}";
+                ViewBag.Titulo = $"Editar sesión #{sesion.SesionID}";
                 DDL();
                 return View(sesion);
             }

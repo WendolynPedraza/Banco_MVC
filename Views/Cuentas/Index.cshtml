@@ -41,32 +41,31 @@
 
 <div class="row">
     <div class="col-md-2" style="text-align:right;">
-        <a href="~/Cuentas/Nueva_Cuenta" class="btn btn-primary">Nueva cuenta</a>
+        <a href="~/Cuentas/Nueva_Cuenta" class="btn btn-primary"><i class="fas fa-address-card"></i>Nueva cuenta</a>
     </div>
 </div>
 
 <br />
+
+
 <div class="col-md-12  row text-center">
     @foreach (var cuenta in Model)
     {
         <div class="col-md-3 col-sm-12">
             @*//Tarjeta de Bootstrap*@
-            <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title text-primary">Cuenta no. @cuenta.Cuentas_DTO.CuentaID</h5>
+                <h2 class="card-title text-primary">@cuenta.Cliente.Nombre</h2>
+                <ul>
+                    <li class="card-text text-primary">@cuenta.Cuentas_DTO.TipoCuenta</li>
+                    <li class="card-text text-primary">@cuenta.Cuentas_DTO.Saldo</li>
+                    <li class="card-text text-primary">@cuenta.Cuentas_DTO.FechaApertura</li>
 
-                <div class="card-body">
-                    <h5 class="card-title">Cuenta no. @cuenta.Cuentas_DTO.CuentaID</h5>
-                    <h2 class="card-title">@cuenta.Cliente.Nombre</h2>
-                    <ul>
-                        <li class="card-text">@cuenta.Cuentas_DTO.TipoCuenta</li>
-                        <li class="card-text">@cuenta.Cuentas_DTO.Saldo</li>
-                        <li class="card-text">@cuenta.Cuentas_DTO.FechaApertura</li>
-                        
-                    </ul>
-                    <a class="btn btn-warning" href="~/Cuentas/Editar_Cuenta/@cuenta.Cuentas_DTO.CuentaID">Editar</a>
-                    <a class="btn btn-danger" href="~/Cuentas/Confirmar_Eliminar/@cuenta.Cuentas_DTO.CuentaID">Eliminar</a>
-                </div>
+                </ul>
+                <a class="btn btn-outline-warning" href="~/Cuentas/Editar_Cuenta/@cuenta.Cuentas_DTO.CuentaID"><i class="fas fa-edit"></i>Editar</a>
+                <a class="btn btn-outline-danger" href="~/Cuentas/Confirmar_Eliminar/@cuenta.Cuentas_DTO.CuentaID"><i class="fas fa-trash-alt"></i>Eliminar</a>
             </div>
         </div>
     }
-</div>
 
+</div>

@@ -5,19 +5,19 @@
 
 <div class="row">
     <div class="col-md-2" style="text-align:right;">
-        <a href="~/Transacciones/Nueva_Transaccion" class="btn btn-primary">Nueva transaccion</a>
+        <a href="~/Transacciones/Nueva_Transaccion" class="btn btn-primary"><i class="fas fa-address-card"></i>Nueva transaccion</a>
     </div>
 </div>
 <br />
 
-<table class="table table-bordered table-striped table-striped-columns table-responsive">
+<table class="table table-bordered table-striped table-striped-columns table-responsive table-dark">
 <thead>
             <tr>
                 <th scope="col"> TransaccionID     </th>
                 <th scope="col"> CuentaID     </th>
-                <th scope="col"> TipoTransaccion   </th>
+                <th scope="col"> Tipo Transacción   </th>
                 <th scope="col"> Monto         </th>
-                <th scope="col"> FechaTransaccion        </th>
+                <th scope="col"> Fecha Transacción        </th>
                 
             </tr>
         </thead>
@@ -30,8 +30,8 @@
                     <td>@transacciones.TipoTransaccion </td>
                     <td>@transacciones.Monto  </td>
                     <td>@transacciones.FechaTransaccion</td>
-                    <td><a class="btn btn-warning" href="~/Transacciones/Editar_Transaccion/@transacciones.TransaccionID">Editar</a></td>
-                    <td><a class="btn btn-danger" href="~/Transacciones/Confirmar_Eliminar/@transacciones.TransaccionID">Eliminar</a></td>
+                    <td><a class="btn btn-outline-warning" href="~/Transacciones/Editar_Transaccion/@transacciones.TransaccionID"><i class="fas fa-edit"></i>Editar</a></td>
+                    <td><a class="btn btn-outline-danger" href="~/Transacciones/Confirmar_Eliminar/@transacciones.TransaccionID"><i class="fas fa-trash-alt"></i>Eliminar</a></td>
                     
                 </tr>
             }

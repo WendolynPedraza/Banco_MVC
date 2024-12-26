@@ -10,6 +10,8 @@
 @using (Html.BeginForm("Editar_Cuenta", "Cuentas", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="row">
+
+        <span class="border border-4">
         <div class="col-12">
             @Html.HiddenFor(model => model.CuentaID)
 
@@ -18,7 +20,10 @@
                 @*generamos la etiqueta label*@
                 @Html.LabelFor(model => model.ClienteID)
                 @*generamos la etiqueta input*@
-                @Html.DropDownListFor(model => model.ClienteID, new SelectList(ViewBag.listaclientes, "ClienteID", "Nombre", new { @class = "form-control", @type = "text" }))
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
+                    @Html.DropDownListFor(model => model.ClienteID, new SelectList(ViewBag.listaclientes, "ClienteID", "Nombre", new { @class = "form-control", @type = "text" }))
+                </div>
                 @*generamos un espacio para le msg de validacion*@
                 @Html.ValidationMessageFor(model => model.ClienteID, null)
             </div>
@@ -27,7 +32,10 @@
                 @*generamos la etiqueta label*@
                 @Html.LabelFor(model => model.TipoCuenta)
                 @*generamos la etiqueta input*@
-                @Html.DropDownListFor(model => model.TipoCuenta, new SelectList(ViewBag.ListaTipos, "Descripcion", "Descripcion"), new { @class = "form-control" })
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-address-card"></i></span>
+                    @Html.DropDownListFor(model => model.TipoCuenta, new SelectList(ViewBag.ListaTipos, "Descripcion", "Descripcion"), new { @class = "form-control" })
+                </div>
                 @*generamos un espacio para le msg de validacion*@
                 @Html.ValidationMessageFor(model => model.TipoCuenta, null)
             </div>
@@ -36,7 +44,10 @@
                 @*generamos la etiqueta label*@
                 @Html.LabelFor(model => model.Saldo)
                 @*generamos la etiqueta input*@
-                @Html.TextBoxFor(model => model.Saldo, new { @class = "form-control", @type = "decimal" })
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                    @Html.TextBoxFor(model => model.Saldo, new { @class = "form-control", @type = "decimal" })
+                </div>
                 @*generamos un espacio para le msg de validacion*@
                 @Html.ValidationMessageFor(model => model.Saldo, null)
             </div>
@@ -45,17 +56,22 @@
                 @*generamos la etiqueta label*@
                 @Html.LabelFor(model => model.FechaApertura)
                 @*generamos la etiqueta input*@
-                @Html.TextBoxFor(model => model.FechaApertura, new { @class = "form-control", @type = "text" })
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                    @Html.TextBoxFor(model => model.FechaApertura, new { @class = "form-control", @type = "text" })
+                </div>
                 @*generamos un espacio para le msg de validacion*@
                 @Html.ValidationMessageFor(model => model.FechaApertura, null)
             </div>
 
-            
+
 
             <div style="text-align: right;">
                 <input value="Guardar" class="btn btn-success" type="submit" />
             </div>
         </div>
+</span>
+
     </div>
 }
 

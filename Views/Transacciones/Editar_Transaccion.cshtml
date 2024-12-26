@@ -10,6 +10,8 @@
 @using (Html.BeginForm("Editar_Transaccion", "Transacciones", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="row">
+
+        <span class="border border-4">
         <div class="col-12">
             @Html.HiddenFor(model => model.TransaccionID)
 
@@ -18,7 +20,10 @@
                 @*generamos la etiqueta label*@
                 @Html.LabelFor(model => model.CuentaID)
                 @*generamos la etiqueta input*@
-                @Html.TextBoxFor(model => model.CuentaID, new { @class = "form-control", @type = "number" })
+                <div class="input-group">
+                    <span class="input-group-text"><i class="far fa-address-card"></i></span>
+                    @Html.TextBoxFor(model => model.CuentaID, new { @class = "form-control", @type = "number" })
+                </div>
                 @*generamos un espacio para le msg de validacion*@
                 @Html.ValidationMessageFor(model => model.CuentaID, null)
             </div>
@@ -27,7 +32,10 @@
                 @*generamos la etiqueta label*@
                 @Html.LabelFor(model => model.TipoTransaccion)
                 @*generamos la etiqueta input*@
-                @Html.DropDownListFor(model => model.TipoTransaccion, new SelectList(ViewBag.ListaTipos, "Descripcion", "Descripcion"), new { @class = "form-control" })
+                <div class="input-group">
+                    <span class="input-group-text"><i class="far fa-address-card"></i></span>
+                    @Html.DropDownListFor(model => model.TipoTransaccion, new SelectList(ViewBag.ListaTipos, "Descripcion", "Descripcion"), new { @class = "form-control" })
+                </div>
                 @*generamos un espacio para le msg de validacion*@
                 @Html.ValidationMessageFor(model => model.TipoTransaccion, null)
 
@@ -37,7 +45,10 @@
                 @*generamos la etiqueta label*@
                 @Html.LabelFor(model => model.Monto)
                 @*generamos la etiqueta input*@
-                @Html.TextBoxFor(model => model.Monto, new { @class = "form-control", @type = "decimal" })
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                    @Html.TextBoxFor(model => model.Monto, new { @class = "form-control", @type = "decimal" })
+                </div>
                 @*generamos un espacio para le msg de validacion*@
                 @Html.ValidationMessageFor(model => model.Monto, null)
             </div>
@@ -46,7 +57,10 @@
                 @*generamos la etiqueta label*@
                 @Html.LabelFor(model => model.FechaTransaccion)
                 @*generamos la etiqueta input*@
-                @Html.TextBoxFor(model => model.FechaTransaccion, new { @class = "form-control", @type = "text" })
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                    @Html.TextBoxFor(model => model.FechaTransaccion, new { @class = "form-control", @type = "text" })
+                </div>
                 @*generamos un espacio para le msg de validacion*@
                 @Html.ValidationMessageFor(model => model.FechaTransaccion, null)
             </div>
@@ -58,6 +72,8 @@
 
 
         </div>
+            </span>
+
     </div>
 }
 

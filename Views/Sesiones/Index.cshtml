@@ -4,12 +4,12 @@
 <br />
 <div class="row">
     <div class="col-md-2" style="text-align:right;">
-        <a href="~/Sesiones/Nueva_Sesion" class="btn btn-primary">Nueva sesión</a>
+        <a href="~/Sesiones/Nueva_Sesion" class="btn btn-primary"><i class="fa fa-user"></i>Nueva sesión</a>
     </div>
 </div>
 <br />
 
-<table class="table table-bordered table-striped table-striped-columns table-responsive">
+<table class="table table-bordered table-striped table-striped-columns table-responsive table-dark">
     <thead>
         <tr>
             <th scope="col">SesionID     </th>
@@ -40,11 +40,11 @@
                 <td>@sesion.Sesiones_DTO.ContraseñaAnterior5 </td>
 
                 <td>
-                    <a class="btn btn-warning" href="~/Sesiones/Editar_Sesion/@sesion.Sesiones_DTO.SesionID">Editar</a>
+                    <a class="btn btn-outline-warning" href="~/Sesiones/Editar_Sesion/@sesion.Sesiones_DTO.SesionID"><i class="fas fa-edit"></i>Editar</a>
 
                 </td>
                 <td>
-                    <a class="btn btn-danger" href="~/Sesiones/Confirmar_Eliminar/@sesion.Sesiones_DTO.SesionID">Eliminar</a>
+                    <a class="btn btn-outline-danger" href="~/Sesiones/Confirmar_Eliminar/@sesion.Sesiones_DTO.SesionID"><i class="fas fa-trash-alt"></i>Eliminar</a>
                 </td>
 
             </tr>

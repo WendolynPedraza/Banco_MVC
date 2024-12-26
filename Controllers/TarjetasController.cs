@@ -132,7 +132,7 @@ namespace Banco_MVC.Controllers
                 {
                     return RedirectToAction("Index");
                 }
-                ViewBag.Titulo = $"Editar Prestamo #{tarjeta.TarjetaID}";
+                ViewBag.Titulo = $"Editar tarjeta #{tarjeta.TarjetaID}";
                 DDL();
                 cargarDDL();
                 cargarDDL1();

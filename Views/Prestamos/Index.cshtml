@@ -9,12 +9,12 @@
 
 <div class="row">
     <div class="col-md-2" style="text-align:right;">
-        <a href="~/Prestamos/Nuevo_Prestamo" class="btn btn-primary">Nuevo prestamo</a>
+        <a href="~/Prestamos/Nuevo_Prestamo" class="btn btn-primary"><i class="fas fa-dollar-sign"></i>Nuevo prestamo</a>
     </div>
 </div>
 <br />
 
-<table class="table table-bordered table-striped table-striped-columns table-responsive">
+<table class="table table-bordered table-striped table-striped-columns table-responsive table-dark">
     <thead>
         <tr>
             <th scope="col"> PrestamoID     </th>
@@ -40,11 +40,11 @@
                 <td>@prestamos.Prestamos_DTO.SaldoPendiente </td>
 
                 <td>
-                    <a class="btn btn-warning" href="~/Prestamos/Editar_Prestamo/@prestamos.Prestamos_DTO.PrestamoID">Editar</a>
+                    <a class="btn btn-outline-warning" href="~/Prestamos/Editar_Prestamo/@prestamos.Prestamos_DTO.PrestamoID"><i class="fas fa-edit"></i>Editar</a>
 
                 </td>
                 <td>
-                    <a class="btn btn-danger" href="~/Prestamos/Confirmar_Eliminar/@prestamos.Prestamos_DTO.PrestamoID">Eliminar</a>
+                    <a class="btn btn-outline-danger" href="~/Prestamos/Confirmar_Eliminar/@prestamos.Prestamos_DTO.PrestamoID"><i class="fas fa-trash-alt"></i>Eliminar</a>
                 </td>
 
             </tr>
