@@ -1,0 +1,54 @@
+﻿
+<h1>@ViewBag.Titulo</h1>
+<h1>@ViewBag.Subtitulo</h1>
+<br />
+<div class="row">
+    <div class="col-md-2" style="text-align:right;">
+        <a href="~/Sesiones/Nueva_Sesion" class="btn btn-primary">Nueva sesión</a>
+    </div>
+</div>
+<br />
+
+<table class="table table-bordered table-striped table-striped-columns table-responsive">
+    <thead>
+        <tr>
+            <th scope="col">SesionID     </th>
+            <th scope="col">ClienteID     </th>
+            <th scope="col">Usuario     </th>
+            <th scope="col">ContraseñaActual   </th>
+            <th scope="col">Cambio de contraseña</th>
+            <th scope="col">ContraseñaAnterior1         </th>
+            <th scope="col">ContraseñaAnterior2        </th>
+            <th scope="col">ContraseñaAnterior3     </th>
+            <th scope="col">ContraseñaAnterior4     </th>
+            <th scope="col">ContraseñaAnterior5     </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sesion in Model)
+        {
+            <tr>
+                <td>@sesion.Sesiones_DTO.SesionID </td>
+                <td>@sesion.Cliente.Nombre </td>
+                <td>@sesion.Sesiones_DTO.Usuario </td>
+                <td>@sesion.Sesiones_DTO.ContraseñaActual </td>
+                <td>@sesion.Sesiones_DTO.FechaCambioContraseña </td>
+                <td>@sesion.Sesiones_DTO.ContraseñaAnterior1 </td>
+                <td>@sesion.Sesiones_DTO.ContraseñaAnterior2 </td>
+                <td>@sesion.Sesiones_DTO.ContraseñaAnterior3 </td>
+                <td>@sesion.Sesiones_DTO.ContraseñaAnterior4 </td>
+                <td>@sesion.Sesiones_DTO.ContraseñaAnterior5 </td>
+
+                <td>
+                    <a class="btn btn-warning" href="~/Sesiones/Editar_Sesion/@sesion.Sesiones_DTO.SesionID">Editar</a>
+
+                </td>
+                <td>
+                    <a class="btn btn-danger" href="~/Sesiones/Confirmar_Eliminar/@sesion.Sesiones_DTO.SesionID">Eliminar</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+

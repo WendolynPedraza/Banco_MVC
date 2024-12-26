@@ -267,10 +267,12 @@
     <Content Include="Views\Transacciones\Index.cshtml" />
     <Content Include="Views\Transacciones\Nueva_Transaccion.cshtml" />
     <Content Include="Views\Transacciones\Editar_Transaccion.cshtml" />
+    <Content Include="Views\Sesiones\Index.cshtml" />
+    <Content Include="Views\Sesiones\Nueva_Sesion.cshtml" />
+    <Content Include="Views\Sesiones\Editar_Sesion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Sesiones\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

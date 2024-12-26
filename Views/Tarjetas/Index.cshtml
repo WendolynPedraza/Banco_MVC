@@ -22,19 +22,20 @@
             <div class="card" style="width: 18rem;">
 
                 <div class="card-body">
-                    <h2 class="card-title">Tarjeta no. @tarjetas.TarjetaID</h2>
-                    <h5 class="card-title">@tarjetas.ClienteID</h5>
+                    <h5 class="card-title">Tarjeta no. @tarjetas.Tarjertas_DTO.TarjetaID</h5>
+
+                    <h2 class="card-title">@tarjetas.Cliente.Nombre</h2>
                     <ul>
-                        <li class="card-text">@tarjetas.NumeroTarjeta</li>
-                        <li class="card-text">@tarjetas.TipoTarjeta</li>
-                        <li class="card-text">@tarjetas.LimiteCredito</li>
-                        <li class="card-text">@tarjetas.SaldoDisponible</li>
-                        <li class="card-text">@tarjetas.FechaEmision</li>
-                        <li class="card-text">@tarjetas.FechaVencimiento</li>
-                        <li class="card-text">@tarjetas.Estado</li>
+                        <li class="card-text">@tarjetas.Tarjertas_DTO.NumeroTarjeta</li>
+                        <li class="card-text">@tarjetas.Tarjertas_DTO.TipoTarjeta</li>
+                        <li class="card-text">@tarjetas.Tarjertas_DTO.LimiteCredito</li>
+                        <li class="card-text">@tarjetas.Tarjertas_DTO.SaldoDisponible</li>
+                        <li class="card-text">@tarjetas.Tarjertas_DTO.FechaEmision</li>
+                        <li class="card-text">@tarjetas.Tarjertas_DTO.FechaVencimiento</li>
+                        <li class="card-text">@tarjetas.Tarjertas_DTO.Estado</li>
                     </ul>
-                    <a class="btn btn-warning" href="~/Tarjetas/Editar_Tarjeta/@tarjetas.TarjetaID">Editar</a>
-                    <a class="btn btn-danger" href="~/Tarjetas/Confirmar_Eliminar/@tarjetas.TarjetaID">Eliminar</a>
+                    <a class="btn btn-warning" href="~/Tarjetas/Editar_Tarjeta/@tarjetas.Tarjertas_DTO.TarjetaID">Editar</a>
+                    <a class="btn btn-danger" href="~/Tarjetas/Confirmar_Eliminar/@tarjetas.Tarjertas_DTO.TarjetaID">Eliminar</a>
                 </div>
             </div>
         </div>

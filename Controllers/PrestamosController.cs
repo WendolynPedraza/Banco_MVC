@@ -14,10 +14,34 @@ namespace Banco_MVC.Controllers
         // GET: Prestamos
         public ActionResult Index()
         {
-            List<Prestamos> lista_prestamos = new List<Prestamos>();
+            //List<Prestamos> lista_prestamos = new List<Prestamos>();}
+            List<Prestamos_Clientes_DTO> lista_prestamos = new List<Prestamos_Clientes_DTO>(); 
             using (BancoDBEntities1 context = new BancoDBEntities1())
             {
-                lista_prestamos = context.Prestamos.ToList();
+                //lista_prestamos = context.Prestamos.ToList();
+
+                lista_prestamos = (from c in context.Clientes
+                                 join e in context.Prestamos on c.ClienteID equals e.ClienteID
+
+                                 select new Prestamos_Clientes_DTO()
+                                 {
+                                     Prestamos_DTO = new Prestamos_DTO()
+                                     {
+                                         PrestamoID=e.PrestamoID,
+                                         ClienteID=e.ClienteID,
+                                         Monto=e.Monto,
+                                         TasaInteres=e.TasaInteres,
+                                         FechaInicio=e.FechaInicio,
+                                         FechaVencimiento=e.FechaVencimiento,
+                                         SaldoPendiente=e.SaldoPendiente
+                                         
+                                     },
+                                     Cliente = new Cliente_DTO()
+                                     {
+                                         ClienteID = c.ClienteID,
+                                         Nombre = c.Nombre
+                                     }
+                                 }).ToList();
 
             }
 

@@ -31,20 +31,20 @@
         @foreach (var prestamos in Model)
         {
             <tr>
-                <td>@prestamos.PrestamoID </td>
-                <td>@prestamos.ClienteID </td>
-                <td>@prestamos.Monto </td>
-                <td>@prestamos.TasaInteres </td>
-                <td>@prestamos.FechaInicio </td>
-                <td>@prestamos.FechaVencimiento </td>
-                <td>@prestamos.SaldoPendiente </td>
+                <td>@prestamos.Prestamos_DTO.PrestamoID </td>
+                <td>@prestamos.Cliente.Nombre </td>
+                <td>@prestamos.Prestamos_DTO.Monto </td>
+                <td>@prestamos.Prestamos_DTO.TasaInteres </td>
+                <td>@prestamos.Prestamos_DTO.FechaInicio </td>
+                <td>@prestamos.Prestamos_DTO.FechaVencimiento </td>
+                <td>@prestamos.Prestamos_DTO.SaldoPendiente </td>
 
                 <td>
-                    <a class="btn btn-warning" href="~/Prestamos/Editar_Prestamo/@prestamos.PrestamoID">Editar</a>
+                    <a class="btn btn-warning" href="~/Prestamos/Editar_Prestamo/@prestamos.Prestamos_DTO.PrestamoID">Editar</a>
 
                 </td>
                 <td>
-                    <a class="btn btn-danger" href="~/Prestamos/Confirmar_Eliminar/@prestamos.PrestamoID">Eliminar</a>
+                    <a class="btn btn-danger" href="~/Prestamos/Confirmar_Eliminar/@prestamos.Prestamos_DTO.PrestamoID">Eliminar</a>
                 </td>
 
             </tr>

@@ -14,24 +14,50 @@ namespace Banco_MVC.Controllers
         // GET: Transaccion
         public ActionResult Index()
         {
-            List<Sesiones> lista_sesiones = new List<Sesiones>();
+            //List<Sesiones> lista_sesiones = new List<Sesiones>();
+            List<Sesiones_Clientes_DTO> listas_sesiones = new List<Sesiones_Clientes_DTO>();
             using (BancoDBEntities1 context = new BancoDBEntities1())
             {
-                lista_sesiones = context.Sesiones.ToList();
+                //lista_sesiones = context.Sesiones.ToList();
+                listas_sesiones = (from c in context.Clientes
+                                   join e in context.Sesiones on c.ClienteID equals e.ClienteID
+
+                                   select new Sesiones_Clientes_DTO()
+                                   {
+                                       Sesiones_DTO = new Sesiones_DTO()
+                                       {
+                                           SesionID = e.SesionID,
+                                           ClienteID = e.ClienteID,
+                                           Usuario = e.Usuario,
+                                           ContraseñaActual = e.ContraseñaActual,
+                                           FechaCambioContraseña = e.FechaCambioContraseña,
+                                           ContraseñaAnterior1 = e.ContraseñaAnterior1,
+                                           ContraseñaAnterior2 = e.ContraseñaAnterior2,
+                                           ContraseñaAnterior3 = e.ContraseñaAnterior3,
+                                           ContraseñaAnterior4=e.ContraseñaAnterior4,
+                                           ContraseñaAnterior5=e.ContraseñaAnterior5
+                                           
+                                       },
+                                       Cliente = new Cliente_DTO()
+                                       {
+                                           ClienteID = c.ClienteID,
+                                           Nombre = c.Nombre
+                                       }
+                                   }).ToList();
 
             }
 
-            ViewBag.Titulo = "Administracion de sesiones.";
+            ViewBag.Titulo = "Administración de sesiones.";
             //ViewBag.Subtitulo = "Utilizando ASP.NET MVC";
             ViewData["Titulo2"] = "Segundo Titulo";
-            return View(lista_sesiones);
+            return View(listas_sesiones);
         }
 
         //GET: Nueva_Transaccion
         public ActionResult Nueva_Sesion()
         {
             ViewBag.Titulo = "Nuevo prestamo";
-            //cargarDDL();
+            DDL();
             return View();
         }
 
@@ -68,14 +94,14 @@ namespace Banco_MVC.Controllers
                 }
                 else
                 {
-                    //cargarDDL();
+                    DDL();
                     return View(model);
                 }
             }
             catch (Exception ex)
             {
                 SweetAlert("ERROR", "Sesión no agregada.", NotificationType.error);
-                //cargarDDL();
+                DDL();
                 return View();
             }
         }
@@ -108,7 +134,7 @@ namespace Banco_MVC.Controllers
                     return RedirectToAction("Index");
                 }
                 ViewBag.Titulo = $"Editar Prestamo #{sesion.SesionID}";
-                //cargarDDL();
+                DDL();
                 return View(sesion);
             }
             else
@@ -171,41 +197,42 @@ namespace Banco_MVC.Controllers
                 {
                     //Sweet Alert
                     SweetAlert("ERROR", "Sesión no agregada.", NotificationType.error);
-                    cargarDDL();
+                    DDL();
                     return View(model);
                 }
             }
             catch (Exception ex)
             {
                 //Sweet Alert
-                //cargarDDL();
+                SweetAlert("ERROR", "Sesión no agregada.", NotificationType.error);
+                DDL();
                 return View(model);
             }
         }
 
         //GET: Eliminar_Prestamo /{id}
-        public ActionResult Eliminar_Transaccion(int id)
+        public ActionResult Eliminar_Sesion(int id)
         {
             try
             {
                 using (BancoDBEntities1 context = new BancoDBEntities1())
                 {
 
-                    var trans = context.Transacciones.FirstOrDefault(x => x.TransaccionID == id);
+                    var sesion = context.Sesiones.FirstOrDefault(x => x.SesionID == id);
 
-                    if (trans == null)
+                    if (sesion == null)
                     {
 
-                        SweetAlert("No encontrado", $"No hemos encontrado la transacción con el identificador: {id}", NotificationType.info);
+                        SweetAlert("No encontrado", $"No hemos encontrado la sesión con el identificador: {id}", NotificationType.info);
                         return RedirectToAction("Index");
                     }
 
                     //procedo a eliminar 
-                    context.Transacciones.Remove(trans);
+                    context.Sesiones.Remove(sesion);
                     context.SaveChanges();
                     //sweetAlert
 
-                    SweetAlert("Eliminar", "Transacción eliminada con exito", NotificationType.success);
+                    SweetAlert("Eliminar", "Sesion eliminada con exito", NotificationType.success);
 
                     return RedirectToAction("Index");
                 }
@@ -224,6 +251,63 @@ namespace Banco_MVC.Controllers
         {
             SweetAlert_Eliminar(id);
             return RedirectToAction("Index");
+        }
+
+        public void DDL()
+        {
+            List<Clientes> listaclientes = new List<Clientes>();
+            using (BancoDBEntities1 context = new BancoDBEntities1())
+            {
+                listaclientes = (from clientes in context.Clientes select clientes).ToList();
+                ViewBag.listaclientes = listaclientes;
+            }
+        }
+
+        #region SweetAlert
+        private void SweetAlert(string title, string msg, NotificationType type)
+        {
+            var script = "<script languaje='javascript'> " +
+                         "Swal.fire({" +
+                         "title: '" + title + "'," +
+                         "text: '" + msg + "'," +
+                         "icon: '" + type + "'" +
+                         "});" +
+                         "</script>";
+            TempData["sweetalert"] = script;
+
+        }
+
+        private void SweetAlert_Eliminar(int id)
+        {
+            var script = "<script languaje='javascript'>" +
+                "Swal.fire({" +
+                "title: '¿Estás Seguro?'," +
+                "text: 'Estás apunto de Eliminar la transacción: " + id.ToString() + "'," +
+                "icon: 'info'," +
+                "showDenyButton: true," +
+                "showCancelButton: true," +
+                "confirmButtonText: 'Eliminar'," +
+                "denyButtonText: 'Cancelar'" +
+                "}).then((result) => {" +
+                "if (result.isConfirmed) {  " +
+                "window.location.href = '/Sesiones/Eliminar_Sesion/" + id + "';" +
+                "} else if (result.isDenied) {  " +
+                "Swal.fire('Se ha cancelado la operación','','info');" +
+                "}" +
+                "});" +
+                "</script>";
+
+            TempData["sweetalert"] = script;
+        }
+
+        public enum NotificationType
+        {
+            error,
+            success,
+            warning,
+            info,
+            question
+            #endregion
         }
     }
 }

@@ -14,10 +14,35 @@ namespace Banco_MVC.Controllers
         // GET: Tarjetas
         public ActionResult Index()
         {
-            List<Tarjetas> lista_tarjetas = new List<Tarjetas>();
+            //List<Tarjetas> lista_tarjetas = new List<Tarjetas>();
+            List < Tarjetas_Clientes_DTO >lista_tarjetas = new List<Tarjetas_Clientes_DTO>();
             using (BancoDBEntities1 context = new BancoDBEntities1())
             {
-                lista_tarjetas = context.Tarjetas.ToList();
+                //lista_tarjetas = context.Tarjetas.ToList();
+
+                lista_tarjetas = (from c in context.Clientes
+                                 join e in context.Tarjetas on c.ClienteID equals e.ClienteID
+
+                                 select new Tarjetas_Clientes_DTO()
+                                 {
+                                     Tarjertas_DTO = new Tarjertas_DTO()
+                                     {
+                                         TarjetaID=e.TarjetaID,
+                                         ClienteID=e.ClienteID,
+                                         NumeroTarjeta=e.NumeroTarjeta,
+                                         LimiteCredito=e.LimiteCredito,
+                                         SaldoDisponible=e.SaldoDisponible,
+                                         FechaEmision=e.FechaEmision,
+                                         FechaVencimiento=e.FechaVencimiento,
+                                         Estado=e.Estado
+                                         
+                                     },
+                                     Cliente = new Cliente_DTO()
+                                     {
+                                         ClienteID = c.ClienteID,
+                                         Nombre = c.Nombre
+                                     }
+                                 }).ToList();
 
             }
 

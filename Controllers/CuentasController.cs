@@ -14,11 +14,30 @@ namespace Banco_MVC.Controllers
         // GET: Clientes
         public ActionResult Index()
         {
-            List<Cuentas> lista_cuentas = new List<Cuentas>();
+            List<Cuesta_Cliente_DTO> lista_cuentas = new List<Cuesta_Cliente_DTO>();
             using (BancoDBEntities1 context = new BancoDBEntities1())
             {
-                lista_cuentas = context.Cuentas.ToList();
+                //lista_cuentas = context.Cuentas.ToList();
 
+                lista_cuentas = (from c in context.Clientes
+                                 join e in context.Cuentas on c.ClienteID equals e.ClienteID
+
+                                 select new Cuesta_Cliente_DTO()
+                                 {
+                                     Cuentas_DTO = new Cuentas_DTO()
+                                     {
+                                         CuentaID=e.CuentaID,
+                                         ClienteID = e.ClienteID,
+                                         TipoCuenta = e.TipoCuenta,
+                                         Saldo = e.Saldo,
+                                         FechaApertura = e.FechaApertura
+                                     },
+                                     Cliente = new Cliente_DTO()
+                                     {
+                                         ClienteID = c.ClienteID,
+                                         Nombre = c.Nombre
+                                     }
+                                 }).ToList();
             }
 
             ViewBag.Titulo = "Lista de cuentas";

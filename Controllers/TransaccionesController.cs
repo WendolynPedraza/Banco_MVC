@@ -14,17 +14,19 @@ namespace Banco_MVC.Controllers
         // GET: Transaccion
         public ActionResult Index()
         {
-            List<Transacciones> lista_transc = new List<Transacciones>();
+            List<Transacciones> lista_transac = new List<Transacciones>();
+            
             using (BancoDBEntities1 context = new BancoDBEntities1())
             {
-                lista_transc = context.Transacciones.ToList();
+                lista_transac = context.Transacciones.ToList();
+              
 
             }
 
             ViewBag.Titulo = "Lista de transacciones";
             //ViewBag.Subtitulo = "Utilizando ASP.NET MVC";
             ViewData["Titulo2"] = "Segundo Titulo";
-            return View(lista_transc);
+            return View(lista_transac);
         }
         //GET: Nueva_Transaccion
         public ActionResult Nueva_Transaccion()
