@@ -33,7 +33,7 @@
                 @*generamos la etiqueta label*@
                 @Html.LabelFor(model => model.Saldo)
                 @*generamos la etiqueta input*@
-                @Html.TextBoxFor(model => model.Saldo, new { @class = "form-control", @type = "number" })
+                @Html.TextBoxFor(model => model.Saldo, new { @class = "form-control", @type = "decimal" })
                 @*generamos un espacio para le msg de validacion*@
                 @Html.ValidationMessageFor(model => model.Saldo, null)
             </div>

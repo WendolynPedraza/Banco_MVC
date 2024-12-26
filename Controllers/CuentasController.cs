@@ -22,7 +22,7 @@ namespace Banco_MVC.Controllers
             }
 
             ViewBag.Titulo = "Lista de cuentas";
-            ViewBag.Subtitulo = "Utilizando ASP.NET MVC";
+            //ViewBag.Subtitulo = "Utilizando ASP.NET MVC";
             ViewData["Titulo2"] = "Segundo Titulo";
             return View(lista_cuentas);
         }
@@ -54,6 +54,7 @@ namespace Banco_MVC.Controllers
                         context.Cuentas.Add(cuenta);
                         context.SaveChanges();
 
+                        SweetAlert("Agregada", "Cuenta agregada con exito", NotificationType.success);
                         return RedirectToAction("Index");
 
                     }
@@ -68,6 +69,7 @@ namespace Banco_MVC.Controllers
             }
             catch (Exception ex)
             {
+                SweetAlert("ERROR", "cuenta no agregada", NotificationType.error);
                 DDL();
                 cargarDDL();
                 return View();
@@ -148,6 +150,7 @@ namespace Banco_MVC.Controllers
                             //Sweet Alert
                         }
                         //Sweet Alert
+                        SweetAlert("Actualizada", "Cuenta actualizada con exito", NotificationType.success);
                         return RedirectToAction("Index");
                     }
                 }
@@ -162,7 +165,7 @@ namespace Banco_MVC.Controllers
             catch (Exception ex)
             {
                 //Sweet Alert
-
+                SweetAlert("ERROR", "cuenta no agregada con exito", NotificationType.error);
                 return View(model);
             }
         }
@@ -241,8 +244,6 @@ namespace Banco_MVC.Controllers
         #endregion
 
 
-
-
         #region SweetAlert
         private void SweetAlert(string title, string msg, NotificationType type)
         {
@@ -270,7 +271,7 @@ namespace Banco_MVC.Controllers
                 "denyButtonText: 'Cancelar'" +
                 "}).then((result) => {" +
                 "if (result.isConfirmed) {  " +
-                "window.location.href = '/Cuenta/Eliminar_Cuenta/" + id + "';" +
+                "window.location.href = '/Cuentas/Eliminar_Cuenta/" + id + "';" +
                 "} else if (result.isDenied) {  " +
                 "Swal.fire('Se ha cancelado la operación','','info');" +
                 "}" +

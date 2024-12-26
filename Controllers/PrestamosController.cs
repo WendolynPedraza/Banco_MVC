@@ -22,7 +22,7 @@ namespace Banco_MVC.Controllers
             }
 
             ViewBag.Titulo = "Lista de prestamos";
-            ViewBag.Subtitulo = "Utilizando ASP.NET MVC";
+            //ViewBag.Subtitulo = "Utilizando ASP.NET MVC";
             ViewData["Titulo2"] = "Segundo Titulo";
             return View(lista_prestamos);
         }
@@ -54,6 +54,8 @@ namespace Banco_MVC.Controllers
 
                         context.Prestamos.Add(prestamo);
                         context.SaveChanges();
+
+                        SweetAlert("Agregado", "Prestamo agregado con exito", NotificationType.success);
 
                         return RedirectToAction("Index");
 
@@ -149,19 +151,22 @@ namespace Banco_MVC.Controllers
                             //Sweet Alert
                         }
                         //Sweet Alert
+
+                        SweetAlert("Actualizado", "Prestamo actualizado con exito", NotificationType.success);
                         return RedirectToAction("Index");
                     }
                 }
                 else
                 {
                     //Sweet Alert
-
+                    
                     return View(model);
                 }
             }
             catch (Exception ex)
             {
                 //Sweet Alert
+                SweetAlert("ERROR", "Prestamo no agregada.", NotificationType.error);
                 DDL();
                 return View(model);
             }

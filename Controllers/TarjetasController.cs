@@ -22,7 +22,7 @@ namespace Banco_MVC.Controllers
             }
 
             ViewBag.Titulo = "Lista de tarjetas";
-            ViewBag.Subtitulo = "Utilizando ASP.NET MVC";
+            //ViewBag.Subtitulo = "Utilizando ASP.NET MVC";
             ViewData["Titulo2"] = "Segundo Titulo";
             return View(lista_tarjetas);
         }
@@ -59,6 +59,7 @@ namespace Banco_MVC.Controllers
                         context.Tarjetas.Add(tarjeta);
                         context.SaveChanges();
 
+                        SweetAlert("Agregada", "Tarjeta agregada con exito", NotificationType.success);
                         return RedirectToAction("Index");
 
                     }
@@ -73,6 +74,7 @@ namespace Banco_MVC.Controllers
             }
             catch (Exception ex)
             {
+                SweetAlert("ERROR", "Tarjeta no agregada.", NotificationType.error);
                 DDL();
                 cargarDDL();
                 cargarDDL1();
@@ -163,6 +165,7 @@ namespace Banco_MVC.Controllers
                             //Sweet Alert
                         }
                         //Sweet Alert
+                        SweetAlert("Actualizada", "Tarjeta actualizada con exito", NotificationType.success);
                         return RedirectToAction("Index");
                     }
                 }
@@ -176,7 +179,7 @@ namespace Banco_MVC.Controllers
             catch (Exception ex)
             {
                 //Sweet Alert
-
+                SweetAlert("ERROR", "Tarjeta no Actualizada.", NotificationType.error);
                 return View(model);
             }
         }

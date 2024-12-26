@@ -5,36 +5,52 @@
 <h1>@ViewBag.Titulo</h1>
 <h1>@ViewBag.Subtitulo</h1>
 
-
+<br />
 
 <div class="row">
     <div class="col-md-2" style="text-align:right;">
         <a href="~/Prestamos/Nuevo_Prestamo" class="btn btn-primary">Nuevo prestamo</a>
     </div>
 </div>
+<br />
 
-<div class="col-md-12  row text-center">
-    @foreach (var prestamos in Model)
-    {
-        <div class="col-md-3 col-sm-12">
-            @*//Tarjeta de Bootstrap*@
-            <div class="card" style="width: 18rem;">
+<table class="table table-bordered table-striped table-striped-columns table-responsive">
+    <thead>
+        <tr>
+            <th scope="col"> PrestamoID     </th>
+            <th scope="col"> ClienteID     </th>
+            <th scope="col"> Monto     </th>
+            <th scope="col"> Tasa de interes     </th>
+            <th scope="col"> FechaNa de inicio   </th>
+            <th scope="col"> Fecha de venciminento       </th>
+            <th scope="col"> Saldo pendiente        </th>
 
-                <div class="card-body">
-                    <h2 class="card-title">Prestamo no. @prestamos.PrestamoID</h2>
-                    <h5 class="card-title">@prestamos.ClienteID</h5>
-                    <ul>
-                        <li class="card-text">@prestamos.Monto</li>
-                        <li class="card-text">@prestamos.TasaInteres</li>
-                        <li class="card-text">@prestamos.FechaInicio</li>
-                        <li class="card-text">@prestamos.FechaVencimiento</li>
-                        <li class="card-text">@prestamos.SaldoPendiente</li>
-                    </ul>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var prestamos in Model)
+        {
+            <tr>
+                <td>@prestamos.PrestamoID </td>
+                <td>@prestamos.ClienteID </td>
+                <td>@prestamos.Monto </td>
+                <td>@prestamos.TasaInteres </td>
+                <td>@prestamos.FechaInicio </td>
+                <td>@prestamos.FechaVencimiento </td>
+                <td>@prestamos.SaldoPendiente </td>
+
+                <td>
                     <a class="btn btn-warning" href="~/Prestamos/Editar_Prestamo/@prestamos.PrestamoID">Editar</a>
+
+                </td>
+                <td>
                     <a class="btn btn-danger" href="~/Prestamos/Confirmar_Eliminar/@prestamos.PrestamoID">Eliminar</a>
-                </div>
-            </div>
-        </div>
-    }
-</div>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+
 

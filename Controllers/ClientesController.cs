@@ -59,19 +59,21 @@ namespace Banco_MVC.Controllers
                         context.Clientes.Add(cliente);
                         context.SaveChanges();
 
+                        SweetAlert("Agregado", "cliente agregado con exito", NotificationType.success);
+
                         return RedirectToAction("Index");
 
                     }
                 }
                 else
                 {
-                    SweetAlert("Error", "cliente no agregado con exito", NotificationType.success);
+                    //SweetAlert("Agregado", "cliente agregado con exito", NotificationType.success);
                     return View(model);
                 }
             }
             catch (Exception ex)
             {
-                SweetAlert("Agregado", "cliente agregado con exito", NotificationType.success);
+                SweetAlert("ERROR", "cliente no agregado con exito", NotificationType.error);
                 return View();
             }
         }
@@ -153,6 +155,8 @@ namespace Banco_MVC.Controllers
                             }
                             
                         }
+
+                        SweetAlert("Actualizado", "El cliente se actualizo con exito", NotificationType.success);
                         return RedirectToAction("Index");
                     }
                 }
@@ -164,7 +168,8 @@ namespace Banco_MVC.Controllers
             catch (Exception ex)
             {
                 //Sweet Alert
-                
+                SweetAlert("ERROR", "cliente no agregado con exito", NotificationType.error);
+
                 return View(model);
             }
         }

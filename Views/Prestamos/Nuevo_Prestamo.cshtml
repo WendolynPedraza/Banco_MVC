@@ -24,7 +24,7 @@
                 @*generamos la etiqueta label*@
                 @Html.LabelFor(model => model.Monto)
                 @*generamos la etiqueta input*@
-                @Html.TextBoxFor(model => model.Monto, new { @class = "form-control", @type = "number" })
+                @Html.TextBoxFor(model => model.Monto, new { @class = "form-control", @type = "decimal" })
                 @*generamos un espacio para le msg de validacion*@
                 @Html.ValidationMessageFor(model => model.Monto, null)
             </div>
@@ -33,7 +33,7 @@
                 @*generamos la etiqueta label*@
                 @Html.LabelFor(model => model.TasaInteres)
                 @*generamos la etiqueta input*@
-                @Html.TextBoxFor(model => model.TasaInteres, new { @class = "form-control", @type = "number" })
+                @Html.TextBoxFor(model => model.TasaInteres, new { @class = "form-control", @type = "decimal" })
                 @*generamos un espacio para le msg de validacion*@
                 @Html.ValidationMessageFor(model => model.TasaInteres, null)
             </div>
@@ -60,7 +60,7 @@
                 @*generamos la etiqueta label*@
                 @Html.LabelFor(model => model.SaldoPendiente)
                 @*generamos la etiqueta input*@
-                @Html.TextBoxFor(model => model.SaldoPendiente, new { @class = "form-control", @type = "number" })
+                @Html.TextBoxFor(model => model.SaldoPendiente, new { @class = "form-control", @type = "decimal" })
                 @*generamos un espacio para le msg de validacion*@
                 @Html.ValidationMessageFor(model => model.SaldoPendiente, null)
             </div>

@@ -21,7 +21,7 @@ namespace Banco_MVC.Controllers
 
             }
 
-            ViewBag.Titulo = "Lista de prestamos";
+            ViewBag.Titulo = "Lista de transacciones";
             //ViewBag.Subtitulo = "Utilizando ASP.NET MVC";
             ViewData["Titulo2"] = "Segundo Titulo";
             return View(lista_transc);
@@ -53,6 +53,7 @@ namespace Banco_MVC.Controllers
                         context.Transacciones.Add(trans);
                         context.SaveChanges();
 
+                        SweetAlert("Agregada", "Transacción agregada con exito", NotificationType.success);
                         return RedirectToAction("Index");
 
                     }
@@ -65,6 +66,7 @@ namespace Banco_MVC.Controllers
             }
             catch (Exception ex)
             {
+                SweetAlert("ERROR", "Transacción no agregada.", NotificationType.error);
                 cargarDDL();
                 return View();
             }
@@ -142,12 +144,14 @@ namespace Banco_MVC.Controllers
                             //Sweet Alert
                         }
                         //Sweet Alert
+                        SweetAlert("Actualizada", "Transacción actualizada con exito", NotificationType.success);
                         return RedirectToAction("Index");
                     }
                 }
                 else
                 {
                     //Sweet Alert
+                    SweetAlert("ERROR", "Transaccion no agregada.", NotificationType.error);
                     cargarDDL();
                     return View(model);
                 }

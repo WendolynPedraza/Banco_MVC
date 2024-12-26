@@ -18,7 +18,7 @@
                 @*generamos la etiqueta label*@
                 @Html.LabelFor(model => model.ClienteID)
                 @*generamos la etiqueta input*@
-                @Html.TextBoxFor(model => model.ClienteID, new { @class = "form-control", @type = "text" })
+                @Html.DropDownListFor(model => model.ClienteID, new SelectList(ViewBag.listaclientes, "ClienteID", "Nombre", new { @class = "form-control", @type = "text" }))
                 @*generamos un espacio para le msg de validacion*@
                 @Html.ValidationMessageFor(model => model.ClienteID, null)
             </div>
@@ -27,7 +27,7 @@
                 @*generamos la etiqueta label*@
                 @Html.LabelFor(model => model.TipoCuenta)
                 @*generamos la etiqueta input*@
-                @Html.TextBoxFor(model => model.TipoCuenta, new { @class = "form-control", @type = "text" })
+                @Html.DropDownListFor(model => model.TipoCuenta, new SelectList(ViewBag.ListaTipos, "Descripcion", "Descripcion"), new { @class = "form-control" })
                 @*generamos un espacio para le msg de validacion*@
                 @Html.ValidationMessageFor(model => model.TipoCuenta, null)
             </div>
@@ -36,7 +36,7 @@
                 @*generamos la etiqueta label*@
                 @Html.LabelFor(model => model.Saldo)
                 @*generamos la etiqueta input*@
-                @Html.TextBoxFor(model => model.Saldo, new { @class = "form-control", @type = "text" })
+                @Html.TextBoxFor(model => model.Saldo, new { @class = "form-control", @type = "decimal" })
                 @*generamos un espacio para le msg de validacion*@
                 @Html.ValidationMessageFor(model => model.Saldo, null)
             </div>
@@ -45,7 +45,7 @@
                 @*generamos la etiqueta label*@
                 @Html.LabelFor(model => model.FechaApertura)
                 @*generamos la etiqueta input*@
-                @Html.TextBoxFor(model => model.FechaApertura, new { @class = "form-control", @type = "date" })
+                @Html.TextBoxFor(model => model.FechaApertura, new { @class = "form-control", @type = "text" })
                 @*generamos un espacio para le msg de validacion*@
                 @Html.ValidationMessageFor(model => model.FechaApertura, null)
             </div>

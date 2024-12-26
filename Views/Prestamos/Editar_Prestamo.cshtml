@@ -45,7 +45,7 @@
                 @*generamos la etiqueta label*@
                 @Html.LabelFor(model => model.FechaInicio)
                 @*generamos la etiqueta input*@
-                @Html.TextBoxFor(model => model.FechaInicio, new { @class = "form-control", @type = "date" })
+                @Html.TextBoxFor(model => model.FechaInicio, new { @class = "form-control", @type = "text" })
                 @*generamos un espacio para le msg de validacion*@
                 @Html.ValidationMessageFor(model => model.FechaInicio, null)
             </div>
@@ -54,7 +54,7 @@
                 @*generamos la etiqueta label*@
                 @Html.LabelFor(model => model.FechaVencimiento)
                 @*generamos la etiqueta input*@
-                @Html.TextBoxFor(model => model.FechaVencimiento, new { @class = "form-control", @type = "date" })
+                @Html.TextBoxFor(model => model.FechaVencimiento, new { @class = "form-control", @type = "text" })
                 @*generamos un espacio para le msg de validacion*@
                 @Html.ValidationMessageFor(model => model.FechaVencimiento, null)
             </div>   

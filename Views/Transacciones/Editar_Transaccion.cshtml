@@ -46,7 +46,7 @@
                 @*generamos la etiqueta label*@
                 @Html.LabelFor(model => model.FechaTransaccion)
                 @*generamos la etiqueta input*@
-                @Html.TextBoxFor(model => model.FechaTransaccion, new { @class = "form-control", @type = "date" })
+                @Html.TextBoxFor(model => model.FechaTransaccion, new { @class = "form-control", @type = "text" })
                 @*generamos un espacio para le msg de validacion*@
                 @Html.ValidationMessageFor(model => model.FechaTransaccion, null)
             </div>

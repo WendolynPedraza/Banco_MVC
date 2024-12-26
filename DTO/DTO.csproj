@@ -46,6 +46,7 @@
     <Compile Include="Cuentas_DTO.cs" />
     <Compile Include="Prestamos_DTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sesiones_DTO.cs" />
     <Compile Include="Tarjertas_DTO.cs" />
     <Compile Include="Transacciones_DTO.cs" />
   </ItemGroup>
